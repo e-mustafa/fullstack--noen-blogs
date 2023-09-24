@@ -15,7 +15,7 @@ import {
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link, useNavigate } from 'react-router-dom';
-import { GuestMenu, GuestPages, UserPages } from '../config/data';
+import { GuestMenu, GuestPages, UserMenu, UserPages } from '../config/data';
 import { useDispatch, useSelector } from 'react-redux';
 import Api, { domainBack } from '../config/api';
 import { notifyError, notifySuccess } from './noastify';
@@ -219,32 +219,11 @@ function MainAppBar() {
 								))
 							) : (
 								<>
-									<MenuItem
-										onClick={() => navigate('/user/dashboard')}
-										sx={{ display: 'block', p: 0 }}
-									>
-										<Typography textAlign="center" py={1} px={2}>
-											Dashboard
-										</Typography>
-									</MenuItem>
+									<MenuItem onClick={()=>navigate('/user/dashboard')}>Dashboard</MenuItem>
 
-									<MenuItem
-										onClick={handelLogout}
-										sx={{ display: 'block', p: 0 }}
-									>
-										<Typography textAlign="center" py={1} px={2}>
-											Logout
-										</Typography>
-									</MenuItem>
+									<MenuItem onClick={handelLogout}>Logout</MenuItem>
 
-									<MenuItem
-										onClick={handelLogoutAll}
-										sx={{ display: 'block', p: 0 }}
-									>
-										<Typography textAlign="center" py={1} px={2}>
-											Logout All
-										</Typography>
-									</MenuItem>
+									<MenuItem onClick={handelLogoutAll}>Logout All</MenuItem>
 								</>
 							)}
 						</Menu>

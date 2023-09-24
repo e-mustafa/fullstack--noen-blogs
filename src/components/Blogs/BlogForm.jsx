@@ -108,14 +108,14 @@ function BlogForm({ title }) {
 	};
 
 	useEffect(() => {
-		title && title.toLowerCase() !== 'new' && getBlogs(id);
+		title && title?.toLowerCase() !== 'new' && getBlogs(id);
 	}, [id]);
 
 	const HandelSubmit = async (event) => {
 		event.preventDefault();
 		setProcessing(true);
 		console.log('formInfooooooooo', formInfo);
-		console.log(title.toLowerCase() === 'new');
+		console.log(title?.toLowerCase() === 'new');
 		try {
 			if (!formInfo?.title || !formInfo?.prev) {
 				setProcessing(false);
@@ -128,7 +128,7 @@ function BlogForm({ title }) {
 			};
 
 			let response = {};
-			if (title.toLowerCase() === 'new') {
+			if (title?.toLowerCase() === 'new') {
 				response = await Api.post('/blogs', formInfo, config);
 			} else {
 				response = await Api.patch(`/blogs/${id}`, formInfo, config);

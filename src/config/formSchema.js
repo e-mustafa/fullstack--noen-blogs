@@ -1,4 +1,5 @@
 import * as yup from 'yup';
+// const passwordRules = new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])');
 export const registerSchema = yup.object().shape({
 	firstName: yup
 		.string()
@@ -16,9 +17,14 @@ export const registerSchema = yup.object().shape({
 		.required('Email filed is Required'),
 	password: yup
 		.string()
-		.min(5, 'Password must be at least 5 characters')
-		.required('This filed is Required'),
-	//  .matches(passwordRules, { message: "Please create a stronger password" })
+		.min(8, 'Password must be at least 8 characters')
+		.required('This filed is Required')
+		// .matches(
+		// 	passwordRules,
+		// 	'Password most contain capital & small later, number and symbol'
+		// )
+		,
+
 	passwordCon: yup
 		.string()
 		.oneOf([yup.ref('password'), null], 'Passwords must match')

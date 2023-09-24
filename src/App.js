@@ -15,15 +15,12 @@ import Page404 from './pages/page404';
 import DashBoard from './components/Users/DashBoard';
 import ShowBlogsPage from './pages/showBlogsPage';
 
-
 import { useSelector } from 'react-redux';
 
 const darkTheme = createTheme({
 	palette: {
 		mode: 'dark',
-		primary: {
-			main: '#028fa6',
-		},
+		primary: { main: '#028fa6' },
 	},
 });
 
@@ -55,13 +52,13 @@ function App() {
 						<Route path="/user/edit-infos" element={<DashBoard />} />
 						<Route path="/user/edit-password" element={<DashBoard />} />
 
-						{/* <Route path="/user/logout-all" element={<DashBoard />} /> */}
+						<Route
+							path="/dashboard/my-blogs"
+							element={<ShowBlogsPage title="My Blogs" />}
+						/>
 					</>
 				)}
-				<Route
-					path="/dashboard/my-blogs"
-					element={<ShowBlogsPage title="My Blogs" />}
-				/>
+
 				{isLogin && isAdmin && (
 					<Route
 						path="/admin/dashboard/all-blogs"

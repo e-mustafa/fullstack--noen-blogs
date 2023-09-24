@@ -15,10 +15,15 @@ export const GuestPages = [
 // 	{ title: 'Dashboard', link: '/user/dashboard' },
 // 	{ title: 'Logout', link: '/logout' },
 // ];
+// export const UserMenu = [
+// 	{ title: 'Dashboard', link: '/user/dashboard' },
+// 	{ title: 'Logout', link: '/logout' },
+// 	{ title: 'LogOut All', link: '/user/logout-all' },
+// ];
 export const UserMenu = [
-	{ title: 'Dashboard', link: '/user/dashboard' },
-	{ title: 'Logout', link: '/logout' },
-	{ title: 'LogOut All', link: '/user/logout-all' },
+	{ title: 'Dashboard', link: "()=> navigate('/user/dashboard')" },
+	{ title: 'Logout', link: 'handelLogout' },
+	{ title: 'LogOut All', link: 'handelLogoutAll' },
 ];
 export const GuestMenu = [
 	{ title: 'Login', link: '/user/login' },
